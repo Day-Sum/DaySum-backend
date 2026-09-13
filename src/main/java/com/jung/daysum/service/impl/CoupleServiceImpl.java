@@ -185,4 +185,20 @@ public class CoupleServiceImpl implements CoupleService {
                         String.format("userId = %d", userId)));
     }
 
+    @Transactional
+    @Override
+    public Couple findCoupleWithUserIdForUpdate(Long userId) {
+
+        return coupleRepository
+                .findByUserIdForUpdate(userId)
+                .orElseThrow(
+                        () -> new Exception404.NoSuchCouple(
+                                String.format(
+                                        "userId = %d",
+                                        userId
+                                )
+                        )
+                );
+    }
+
 }
