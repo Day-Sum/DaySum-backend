@@ -12,7 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
+import com.jung.daysum.dto.MusicDto;
 import java.io.IOException;
 import java.time.LocalDate;
 
@@ -144,4 +144,23 @@ public class DailyRecordController {
         return ResponseData.toResponseEntity(ResponseCode.DELETE_DAILY_RECORD_DRAWING);
     }
 
+    @PutMapping("/today/music")
+    @Operation(summary = "오늘 음악 저장/수정 [JWT O]")
+    public ResponseEntity<ResponseData<MusicDto.Response>> updateTodayMusic(
+            @RequestBody MusicDto.UpdateRequest musicUpdateRequestDto
+    ) {
+        MusicDto.Response musicResponseDto = dailyRecordService.updateTodayMusic(musicUpdateRequestDto);
+
+        return ResponseData.toResponseEntity(ResponseCode.UPDATE_DAILY_RECORD_MUSIC, musicResponseDto);
+    }
+
+
+    @DeleteMapping("/today/music")
+    @Operation(summary = "오늘 음악 삭제 [JWT O]")
+    public ResponseEntity<ResponseData> deleteTodayMusic() {
+
+        dailyRecordService.deleteTodayMusic();
+
+        return ResponseData.toResponseEntity(ResponseCode.DELETE_DAILY_RECORD_MUSIC);
+    }
 }

@@ -48,4 +48,10 @@ public class Exception400 extends CustomException {
         }
     }
 
+    public static class MusicBadRequest extends Exception400 {
+
+        public MusicBadRequest(String message) {
+            super(ResponseCode.BAD_REQUEST_MUSIC, message);
+        }
+    }
 }

@@ -75,30 +75,34 @@ public class DailyRecordDto {
 
         private Long dailyRecordId;
         private LocalDate recordDate;
-
         private String mood;
-
         private String photoObjectKey;
         private String drawingObjectKey;
-
         private String diaryContent;
         private Boolean diaryShared;
-
         private Long version;
+        private String musicProvider;
+        private String musicTrackId;
+        private String musicTitle;
+        private String musicArtist;
+        private String musicArtworkUrl;
+        private String musicStoreUrl;
 
         public Response(DailyRecord entity) {
             this.dailyRecordId = entity.getId();
             this.recordDate = entity.getRecordDate();
-
             this.mood = entity.getMood();
-
             this.photoObjectKey = entity.getPhotoObjectKey();
             this.drawingObjectKey = entity.getDrawingObjectKey();
-
             this.diaryContent = entity.getDiaryContent();
             this.diaryShared = entity.getDiarySharedCoupleId() != null;
-
             this.version = entity.getVersion();
+            this.musicProvider = entity.getMusicProvider();
+            this.musicTrackId = entity.getMusicTrackId();
+            this.musicTitle = entity.getMusicTitle();
+            this.musicArtist = entity.getMusicArtist();
+            this.musicArtworkUrl = entity.getMusicArtworkUrl();
+            this.musicStoreUrl = entity.getMusicStoreUrl();
         }
     }
 

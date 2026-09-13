@@ -43,9 +43,26 @@ public class DailyRecord extends BaseEntity implements Serializable {
     @Column(name = "diary_shared_couple_id")
     private Long diarySharedCoupleId;
 
+    @Column(name = "music_provider")
+    private String musicProvider;
+
+    @Column(name = "music_track_id")
+    private String musicTrackId;
+
+    @Column(name = "music_title")
+    private String musicTitle;
+
+    @Column(name = "music_artist")
+    private String musicArtist;
+
+    @Column(name = "music_artwork_url")
+    private String musicArtworkUrl;
+
+    @Column(name = "music_store_url")
+    private String musicStoreUrl;
+
     @Version
     private Long version;
-
 
     @Builder(
             builderClassName = "DailyRecordSaveBuilder",
@@ -56,6 +73,30 @@ public class DailyRecord extends BaseEntity implements Serializable {
         this.recordDate = recordDate;
     }
 
+    public void updateMusic(
+            String musicProvider,
+            String musicTrackId,
+            String musicTitle,
+            String musicArtist,
+            String musicArtworkUrl,
+            String musicStoreUrl
+    ) {
+        this.musicProvider = musicProvider;
+        this.musicTrackId = musicTrackId;
+        this.musicTitle = musicTitle;
+        this.musicArtist = musicArtist;
+        this.musicArtworkUrl = musicArtworkUrl;
+        this.musicStoreUrl = musicStoreUrl;
+    }
+
+    public void deleteMusic() {
+        this.musicProvider = null;
+        this.musicTrackId = null;
+        this.musicTitle = null;
+        this.musicArtist = null;
+        this.musicArtworkUrl = null;
+        this.musicStoreUrl = null;
+    }
 
     public void updateMood(String mood) {
         this.mood = mood;
