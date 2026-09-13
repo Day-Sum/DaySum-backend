@@ -11,7 +11,9 @@ public interface CoupleService {
 
     CoupleDto.ConnectCodeResponse reissueConnectCode();
 
-    CoupleDto.ConnectResponse connect(CoupleDto.ConnectRequest connectRequestDto);
+    CoupleDto.ConnectResponse connect(
+            CoupleDto.ConnectRequest connectRequestDto
+    );
 
     CoupleDto.Response findCoupleProfile();
 
@@ -21,8 +23,10 @@ public interface CoupleService {
 
     void disconnect();
 
+
     // ========== 유틸성 메소드 ========== //
 
     Couple findCoupleWithUserId(Long userId);
 
+    Couple findCoupleWithUserIdForUpdate(Long userId);
 }

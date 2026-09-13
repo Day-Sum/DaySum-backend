@@ -83,6 +83,12 @@ public enum ResponseCode {
 
     // Calendar
     READ_CALENDAR(StatusItem.OK, MessageItem.READ_CALENDAR),
+
+    // CoupleRecord
+    READ_COUPLE_RECORD(StatusItem.OK, MessageItem.READ_COUPLE_RECORD),
+    UPDATE_COUPLE_RECORD(StatusItem.OK, MessageItem.UPDATE_COUPLE_RECORD),
+    NOT_FOUND_COUPLE_RECORD(StatusItem.NOT_FOUND, MessageItem.NOT_FOUND_COUPLE_RECORD),
+    CONFLICT_COUPLE_RECORD(StatusItem.CONFLICT, MessageItem.CONFLICT_COUPLE_RECORD),
     ;
 
     private int httpStatus;
