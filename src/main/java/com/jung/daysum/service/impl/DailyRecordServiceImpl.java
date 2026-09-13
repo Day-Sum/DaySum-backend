@@ -9,11 +9,14 @@ import com.jung.daysum.response.exeption.Exception400;
 import com.jung.daysum.response.exeption.Exception404;
 import com.jung.daysum.service.CoupleService;
 import com.jung.daysum.service.DailyRecordService;
+import com.jung.daysum.service.StorageService;
 import com.jung.daysum.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.time.LocalDate;
 
 @Service
@@ -23,7 +26,7 @@ public class DailyRecordServiceImpl implements DailyRecordService {
     private final UserService userService;
     private final CoupleService coupleService;
     private final DailyRecordRepository dailyRecordRepository;
-
+    private final StorageService storageService;
 
     @Transactional
     @Override
@@ -175,6 +178,169 @@ public class DailyRecordServiceImpl implements DailyRecordService {
                 .build();
     }
 
+    @Transactional
+    @Override
+    public DailyRecordDto.PhotoResponse updateTodayPhoto(
+            MultipartFile imageFile
+    ) throws IOException {
+
+        User loginUser = userService.findLoginUser();
+
+        LocalDate recordDate = LocalDate.now();
+
+        DailyRecord dailyRecord = dailyRecordRepository
+                .findByUser_IdAndRecordDate(
+                        loginUser.getId(),
+                        recordDate
+                )
+                .orElse(null);
+
+        String uploadObjectKey =
+                storageService.uploadImage(
+                        imageFile,
+                        "photos"
+                );
+
+        if(dailyRecord == null) {
+            dailyRecord = DailyRecord.DailyRecordSaveBuilder()
+                    .user(loginUser)
+                    .recordDate(recordDate)
+                    .build();
+
+            dailyRecord.updatePhotoObjectKey(uploadObjectKey);
+
+            dailyRecordRepository.save(dailyRecord);
+        }
+        else {
+            if(dailyRecord.getPhotoObjectKey() != null) {
+                storageService.deleteImage(
+                        dailyRecord.getPhotoObjectKey()
+                );
+            }
+
+            dailyRecord.updatePhotoObjectKey(uploadObjectKey);
+        }
+
+        dailyRecordRepository.flush();
+
+        return DailyRecordDto.PhotoResponse.builder()
+                .photoObjectKey(
+                        dailyRecord.getPhotoObjectKey()
+                )
+                .version(dailyRecord.getVersion())
+                .build();
+    }
+
+    @Transactional
+    @Override
+    public void deleteTodayPhoto() {
+
+        User loginUser = userService.findLoginUser();
+
+        LocalDate recordDate = LocalDate.now();
+
+        DailyRecord dailyRecord =
+                findDailyRecord(
+                        loginUser.getId(),
+                        recordDate
+                );
+
+        if(dailyRecord.getPhotoObjectKey() == null) {
+            throw new Exception400.DailyRecordBadRequest(
+                    "삭제할 사진이 존재하지 않습니다."
+            );
+        }
+
+        storageService.deleteImage(
+                dailyRecord.getPhotoObjectKey()
+        );
+
+        dailyRecord.deletePhoto();
+    }
+
+    @Transactional
+    @Override
+    public DailyRecordDto.DrawingResponse updateTodayDrawing(
+            MultipartFile imageFile
+    ) throws IOException {
+
+        User loginUser = userService.findLoginUser();
+
+        LocalDate recordDate = LocalDate.now();
+
+        DailyRecord dailyRecord = dailyRecordRepository
+                .findByUser_IdAndRecordDate(
+                        loginUser.getId(),
+                        recordDate
+                )
+                .orElse(null);
+
+        String uploadObjectKey =
+                storageService.uploadImage(
+                        imageFile,
+                        "drawings"
+                );
+
+        if(dailyRecord == null) {
+            dailyRecord = DailyRecord.DailyRecordSaveBuilder()
+                    .user(loginUser)
+                    .recordDate(recordDate)
+                    .build();
+
+            dailyRecord.updateDrawingObjectKey(
+                    uploadObjectKey
+            );
+
+            dailyRecordRepository.save(dailyRecord);
+        }
+        else {
+            if(dailyRecord.getDrawingObjectKey() != null) {
+                storageService.deleteImage(
+                        dailyRecord.getDrawingObjectKey()
+                );
+            }
+
+            dailyRecord.updateDrawingObjectKey(
+                    uploadObjectKey
+            );
+        }
+
+        dailyRecordRepository.flush();
+
+        return DailyRecordDto.DrawingResponse.builder()
+                .drawingObjectKey(
+                        dailyRecord.getDrawingObjectKey()
+                )
+                .version(dailyRecord.getVersion())
+                .build();
+    }
+
+    @Transactional
+    @Override
+    public void deleteTodayDrawing() {
+
+        User loginUser = userService.findLoginUser();
+
+        LocalDate recordDate = LocalDate.now();
+
+        DailyRecord dailyRecord =
+                findDailyRecord(
+                        loginUser.getId(),
+                        recordDate
+                );
+
+        if(dailyRecord.getDrawingObjectKey() == null) {
+            throw new Exception400.DailyRecordBadRequest(
+                    "삭제할 그림이 존재하지 않습니다."
+            );
+        }
+
+        storageService.deleteImage(
+                dailyRecord.getDrawingObjectKey()
+        );
+
+        dailyRecord.deleteDrawing();
+    }
 
     // ========== 유틸성 메소드 ========== //
 

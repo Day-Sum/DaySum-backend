@@ -46,26 +46,62 @@ public class DailyRecordDto {
         private Long version;
     }
 
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class PhotoResponse {
+
+        private String photoObjectKey;
+        private Long version;
+    }
+
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class DrawingResponse {
+
+        private String drawingObjectKey;
+        private Long version;
+    }
+
+
     @Getter
     @NoArgsConstructor
     public static class Response {
 
         private Long dailyRecordId;
         private LocalDate recordDate;
+
         private String mood;
+
+        private String photoObjectKey;
+        private String drawingObjectKey;
+
         private String diaryContent;
         private Boolean diaryShared;
+
         private Long version;
 
         public Response(DailyRecord entity) {
             this.dailyRecordId = entity.getId();
             this.recordDate = entity.getRecordDate();
+
             this.mood = entity.getMood();
+
+            this.photoObjectKey = entity.getPhotoObjectKey();
+            this.drawingObjectKey = entity.getDrawingObjectKey();
+
             this.diaryContent = entity.getDiaryContent();
             this.diaryShared = entity.getDiarySharedCoupleId() != null;
+
             this.version = entity.getVersion();
         }
     }
+
 
     @Builder
     @Getter
@@ -76,6 +112,7 @@ public class DailyRecordDto {
         private String diaryContent;
         private Long version;
     }
+
 
     @Builder
     @Getter

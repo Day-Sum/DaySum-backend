@@ -41,7 +41,12 @@ public class MessageItem {
     public static final String UPDATE_DAILY_RECORD_DIARY_SHARE = "SUCCESS - 일기 공유 상태 수정 성공";
     public static final String NOT_FOUND_DAILY_RECORD = "ERROR - 존재하지 않는 일일 기록 조회 에러";
     public static final String BAD_REQUEST_DAILY_RECORD = "ERROR - 잘못된 일일 기록 요청 에러";
-
+    public static final String BAD_REQUEST_STORAGE = "ERROR - 잘못된 파일 요청 에러";
+    public static final String STORAGE_ERROR = "ERROR - 파일 스토리지 처리 에러";
+    public static final String UPDATE_DAILY_RECORD_PHOTO = "SUCCESS - 오늘 사진 저장 성공";
+    public static final String DELETE_DAILY_RECORD_PHOTO = "SUCCESS - 오늘 사진 삭제 성공";
+    public static final String UPDATE_DAILY_RECORD_DRAWING = "SUCCESS - 오늘 그림 저장 성공";
+    public static final String DELETE_DAILY_RECORD_DRAWING = "SUCCESS - 오늘 그림 삭제 성공";
     // < Etc >
     public static final String ANONYMOUS_USER_ERROR = "ERROR - anonymousUser 에러";
     public static final String INTERNAL_SERVER_ERROR = "ERROR - 서버 내부 에러";

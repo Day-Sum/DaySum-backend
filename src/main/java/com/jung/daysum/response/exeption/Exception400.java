@@ -41,4 +41,11 @@ public class Exception400 extends CustomException {
         }
     }
 
+    public static class StorageBadRequest extends Exception400 {
+
+        public StorageBadRequest(String message) {
+            super(ResponseCode.BAD_REQUEST_STORAGE, message);
+        }
+    }
+
 }

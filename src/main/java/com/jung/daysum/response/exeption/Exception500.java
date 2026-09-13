@@ -21,4 +21,11 @@ public class Exception500 extends CustomException {
             super(ResponseCode.ANONYMOUS_USER_ERROR, message);
         }
     }
+
+    public static class StorageServer extends Exception500 {
+
+        public StorageServer(String message) {
+            super(ResponseCode.STORAGE_ERROR, message);
+        }
+    }
 }
