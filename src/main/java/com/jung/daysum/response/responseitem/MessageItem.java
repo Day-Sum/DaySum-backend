@@ -33,6 +33,15 @@ public class MessageItem {
     public static final String BAD_REQUEST_COUPLE = "ERROR - 잘못된 커플 요청 에러";
     public static final String BAD_REQUEST_CONNECT_CODE = "ERROR - 잘못된 연결 코드 요청 에러";
 
+    // < DailyRecord >
+    public static final String UPDATE_DAILY_RECORD_MOOD = "SUCCESS - 오늘 기분 저장 성공";
+    public static final String READ_DAILY_RECORD = "SUCCESS - 일일 기록 조회 성공";
+    public static final String UPDATE_DAILY_RECORD_DIARY = "SUCCESS - 일기 저장 성공";
+    public static final String DELETE_DAILY_RECORD_DIARY = "SUCCESS - 일기 삭제 성공";
+    public static final String UPDATE_DAILY_RECORD_DIARY_SHARE = "SUCCESS - 일기 공유 상태 수정 성공";
+    public static final String NOT_FOUND_DAILY_RECORD = "ERROR - 존재하지 않는 일일 기록 조회 에러";
+    public static final String BAD_REQUEST_DAILY_RECORD = "ERROR - 잘못된 일일 기록 요청 에러";
+
     // < Etc >
     public static final String ANONYMOUS_USER_ERROR = "ERROR - anonymousUser 에러";
     public static final String INTERNAL_SERVER_ERROR = "ERROR - 서버 내부 에러";

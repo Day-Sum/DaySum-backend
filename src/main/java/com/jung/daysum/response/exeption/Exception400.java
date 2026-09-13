@@ -33,4 +33,12 @@ public class Exception400 extends CustomException {
             super(ResponseCode.BAD_REQUEST_CONNECT_CODE, message);
         }
     }
+
+    public static class DailyRecordBadRequest extends Exception400 {
+
+        public DailyRecordBadRequest(String message) {
+            super(ResponseCode.BAD_REQUEST_DAILY_RECORD, message);
+        }
+    }
+
 }
