@@ -31,6 +31,12 @@ public class DailyRecord extends BaseEntity implements Serializable {
     @Column(name = "mood")
     private String mood;
 
+    @Column(name = "photo_object_key")
+    private String photoObjectKey;
+
+    @Column(name = "drawing_object_key")
+    private String drawingObjectKey;
+
     @Column(name = "diary_content", columnDefinition = "TEXT")
     private String diaryContent;
 
@@ -39,6 +45,7 @@ public class DailyRecord extends BaseEntity implements Serializable {
 
     @Version
     private Long version;
+
 
     @Builder(
             builderClassName = "DailyRecordSaveBuilder",
@@ -52,6 +59,22 @@ public class DailyRecord extends BaseEntity implements Serializable {
 
     public void updateMood(String mood) {
         this.mood = mood;
+    }
+
+    public void updatePhotoObjectKey(String photoObjectKey) {
+        this.photoObjectKey = photoObjectKey;
+    }
+
+    public void deletePhoto() {
+        this.photoObjectKey = null;
+    }
+
+    public void updateDrawingObjectKey(String drawingObjectKey) {
+        this.drawingObjectKey = drawingObjectKey;
+    }
+
+    public void deleteDrawing() {
+        this.drawingObjectKey = null;
     }
 
     public void updateDiary(String diaryContent) {
