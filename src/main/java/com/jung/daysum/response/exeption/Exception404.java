@@ -34,4 +34,11 @@ public class Exception404 extends CustomException {
             super(ResponseCode.NOT_FOUND_DAILY_RECORD, message);
         }
     }
+
+    public static class NoSuchCurrentActivity extends Exception404 {
+
+        public NoSuchCurrentActivity(String message) {
+            super(ResponseCode.NOT_FOUND_CURRENT_ACTIVITY, message);
+        }
+    }
 }

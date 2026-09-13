@@ -55,6 +55,13 @@ public class MessageItem {
     public static final String UPDATE_DAILY_RECORD_MUSIC = "SUCCESS - 오늘 음악 저장 성공";
     public static final String DELETE_DAILY_RECORD_MUSIC = "SUCCESS - 오늘 음악 삭제 성공";
 
+    // < Activity >
+    public static final String CREATED_ACTIVITY = "SUCCESS - 활동 시작 성공";
+    public static final String DELETE_CURRENT_ACTIVITY = "SUCCESS - 현재 활동 종료 성공";
+    public static final String READ_ACTIVITIES = "SUCCESS - 활동 기록 조회 성공";
+    public static final String BAD_REQUEST_ACTIVITY = "ERROR - 잘못된 활동 요청 에러";
+    public static final String NOT_FOUND_CURRENT_ACTIVITY = "ERROR - 진행 중인 활동 조회 에러";
+
     // < Etc >
     public static final String ANONYMOUS_USER_ERROR = "ERROR - anonymousUser 에러";
     public static final String INTERNAL_SERVER_ERROR = "ERROR - 서버 내부 에러";

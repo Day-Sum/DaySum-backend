@@ -54,4 +54,11 @@ public class Exception400 extends CustomException {
             super(ResponseCode.BAD_REQUEST_MUSIC, message);
         }
     }
+
+    public static class ActivityBadRequest extends Exception400 {
+
+        public ActivityBadRequest(String message) {
+            super(ResponseCode.BAD_REQUEST_ACTIVITY, message);
+        }
+    }
 }
