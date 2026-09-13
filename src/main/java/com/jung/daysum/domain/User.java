@@ -12,6 +12,7 @@ import java.io.Serializable;
 
 @Getter
 @NoArgsConstructor
+
 @Table(name = "user")
 @Entity
 public class User extends BaseEntity implements Serializable {
@@ -27,16 +28,19 @@ public class User extends BaseEntity implements Serializable {
     private String nickname;
 
     @Column(name = "social_id")
-    private String socialId;  // 소셜 식별값
+    private String socialId;
 
     @Enumerated(EnumType.STRING)
-    private SocialType socialType;  // 소셜 종류
+    private SocialType socialType;
 
     @Enumerated(EnumType.STRING)
     private Role role;
 
     @Column(name = "refresh_token")
     private String refreshToken;
+
+    @Column(name = "connect_code", unique = true)
+    private String connectCode;
 
     @Builder(builderClassName = "UserSaveBuilder", builderMethodName = "UserSaveBuilder")
     public User(String email, Role role, SocialType socialType, String socialId, String nickname) {
@@ -59,10 +63,15 @@ public class User extends BaseEntity implements Serializable {
         this.refreshToken = refreshToken;
     }
 
+    public void updateConnectCode(String connectCode) {
+        this.connectCode = connectCode;
+    }
+
     public void deleteAccount() {
         this.email = null;
         this.nickname = "(탈퇴한 사용자)";
         this.socialId = null;
         this.refreshToken = null;
+        this.connectCode = null;
     }
 }

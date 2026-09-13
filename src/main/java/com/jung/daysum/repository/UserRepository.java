@@ -8,5 +8,9 @@ import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    Optional<User> findBySocialTypeAndSocialId(SocialType socialType, String socialId);  // '소셜 타입, 식별자'로 해당 회원을 찾기 위한 메소드 (차후 추가정보 입력 회원가입 가능)
+    Optional<User> findBySocialTypeAndSocialId(SocialType socialType, String socialId);
+
+    Optional<User> findByConnectCode(String connectCode);
+
+    boolean existsByConnectCode(String connectCode);
 }

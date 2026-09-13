@@ -15,4 +15,16 @@ public class Exception404 extends CustomException {
             super(ResponseCode.NOT_FOUND_USER, message);
         }
     }
+
+    public static class NoSuchCouple extends Exception404 {
+        public NoSuchCouple(String message) {
+            super(ResponseCode.NOT_FOUND_COUPLE, message);
+        }
+    }
+
+    public static class NoSuchConnectCode extends Exception404 {
+        public NoSuchConnectCode(String message) {
+            super(ResponseCode.NOT_FOUND_CONNECT_CODE, message);
+        }
+    }
 }
