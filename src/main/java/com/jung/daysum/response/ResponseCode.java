@@ -80,6 +80,9 @@ public enum ResponseCode {
     READ_PARTNER_TODAY(StatusItem.OK, MessageItem.READ_PARTNER_TODAY),
     READ_PARTNER_DAILY_RECORD(StatusItem.OK, MessageItem.READ_PARTNER_DAILY_RECORD),
     READ_PARTNER_ACTIVITIES(StatusItem.OK, MessageItem.READ_PARTNER_ACTIVITIES),
+
+    // Calendar
+    READ_CALENDAR(StatusItem.OK, MessageItem.READ_CALENDAR),
     ;
 
     private int httpStatus;
