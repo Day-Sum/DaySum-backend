@@ -21,4 +21,16 @@ public class Exception400 extends CustomException {
             super(ResponseCode.BAD_REQUEST_TOKEN, message);
         }
     }
+
+    public static class CoupleBadRequest extends Exception400 {
+        public CoupleBadRequest(String message) {
+            super(ResponseCode.BAD_REQUEST_COUPLE, message);
+        }
+    }
+
+    public static class ConnectCodeBadRequest extends Exception400 {
+        public ConnectCodeBadRequest(String message) {
+            super(ResponseCode.BAD_REQUEST_CONNECT_CODE, message);
+        }
+    }
 }

@@ -9,6 +9,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum ResponseCode {
 
+    // auth
     CREATED_USER(StatusItem.CREATED, MessageItem.CREATED_USER),
     READ_USER(StatusItem.OK, MessageItem.READ_USER),
     DELETE_USER(StatusItem.NO_CONTENT, MessageItem.DELETE_USER),
@@ -27,6 +28,22 @@ public enum ResponseCode {
 
     ANONYMOUS_USER_ERROR(StatusItem.UNAUTHORIZED, MessageItem.ANONYMOUS_USER_ERROR),
     INTERNAL_SERVER_ERROR(StatusItem.INTERNAL_SERVER_ERROR, MessageItem.INTERNAL_SERVER_ERROR),
+
+    // Couple
+    READ_COUPLE_STATUS(StatusItem.OK, MessageItem.READ_COUPLE_STATUS),
+    READ_CONNECT_CODE(StatusItem.OK, MessageItem.READ_CONNECT_CODE),
+    REISSUE_CONNECT_CODE(StatusItem.OK, MessageItem.REISSUE_CONNECT_CODE),
+
+    CREATED_COUPLE(StatusItem.CREATED, MessageItem.CREATED_COUPLE),
+    READ_COUPLE(StatusItem.OK, MessageItem.READ_COUPLE),
+    UPDATE_COUPLE_START_DATE(StatusItem.OK, MessageItem.UPDATE_COUPLE_START_DATE),
+    DELETE_COUPLE(StatusItem.NO_CONTENT, MessageItem.DELETE_COUPLE),
+
+    NOT_FOUND_COUPLE(StatusItem.NOT_FOUND, MessageItem.NOT_FOUND_COUPLE),
+    NOT_FOUND_CONNECT_CODE(StatusItem.NOT_FOUND, MessageItem.NOT_FOUND_CONNECT_CODE),
+
+    BAD_REQUEST_COUPLE(StatusItem.BAD_REQUEST, MessageItem.BAD_REQUEST_COUPLE),
+    BAD_REQUEST_CONNECT_CODE(StatusItem.BAD_REQUEST, MessageItem.BAD_REQUEST_CONNECT_CODE),
     ;
 
     private int httpStatus;
