@@ -65,6 +65,11 @@ public class MessageItem {
     // < Home >
     public static final String READ_HOME = "SUCCESS - 홈 정보 조회 성공";
 
+    // < Partner >
+    public static final String READ_PARTNER_TODAY = "SUCCESS - 상대방 오늘 상태 조회 성공";
+    public static final String READ_PARTNER_DAILY_RECORD = "SUCCESS - 상대방 기록 조회 성공";
+    public static final String READ_PARTNER_ACTIVITIES = "SUCCESS - 상대방 활동 기록 조회 성공";
+
     // < Etc >
     public static final String ANONYMOUS_USER_ERROR = "ERROR - anonymousUser 에러";
     public static final String INTERNAL_SERVER_ERROR = "ERROR - 서버 내부 에러";

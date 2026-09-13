@@ -75,6 +75,11 @@ public enum ResponseCode {
 
     // Home
     READ_HOME(StatusItem.OK, MessageItem.READ_HOME),
+
+    // Partner
+    READ_PARTNER_TODAY(StatusItem.OK, MessageItem.READ_PARTNER_TODAY),
+    READ_PARTNER_DAILY_RECORD(StatusItem.OK, MessageItem.READ_PARTNER_DAILY_RECORD),
+    READ_PARTNER_ACTIVITIES(StatusItem.OK, MessageItem.READ_PARTNER_ACTIVITIES),
     ;
 
     private int httpStatus;
