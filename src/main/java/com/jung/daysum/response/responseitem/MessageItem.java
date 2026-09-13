@@ -62,6 +62,9 @@ public class MessageItem {
     public static final String BAD_REQUEST_ACTIVITY = "ERROR - 잘못된 활동 요청 에러";
     public static final String NOT_FOUND_CURRENT_ACTIVITY = "ERROR - 진행 중인 활동 조회 에러";
 
+    // < Home >
+    public static final String READ_HOME = "SUCCESS - 홈 정보 조회 성공";
+
     // < Etc >
     public static final String ANONYMOUS_USER_ERROR = "ERROR - anonymousUser 에러";
     public static final String INTERNAL_SERVER_ERROR = "ERROR - 서버 내부 에러";

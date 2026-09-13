@@ -72,6 +72,9 @@ public enum ResponseCode {
     READ_ACTIVITIES(StatusItem.OK, MessageItem.READ_ACTIVITIES),
     BAD_REQUEST_ACTIVITY(StatusItem.BAD_REQUEST, MessageItem.BAD_REQUEST_ACTIVITY),
     NOT_FOUND_CURRENT_ACTIVITY(StatusItem.NOT_FOUND, MessageItem.NOT_FOUND_CURRENT_ACTIVITY),
+
+    // Home
+    READ_HOME(StatusItem.OK, MessageItem.READ_HOME),
     ;
 
     private int httpStatus;
