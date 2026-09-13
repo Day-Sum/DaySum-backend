@@ -27,4 +27,11 @@ public class Exception404 extends CustomException {
             super(ResponseCode.NOT_FOUND_CONNECT_CODE, message);
         }
     }
+
+    public static class NoSuchDailyRecord extends Exception404 {
+
+        public NoSuchDailyRecord(String message) {
+            super(ResponseCode.NOT_FOUND_DAILY_RECORD, message);
+        }
+    }
 }
