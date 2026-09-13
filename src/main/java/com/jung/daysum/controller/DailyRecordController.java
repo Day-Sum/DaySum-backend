@@ -8,9 +8,12 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.time.LocalDate;
 
 @Tag(name = "DailyRecord")
@@ -93,6 +96,52 @@ public class DailyRecordController {
         DailyRecordDto.DiaryShareResponse diaryShareResponseDto = dailyRecordService.updateDiaryShare(recordDate, diaryShareRequestDto);
 
         return ResponseData.toResponseEntity(ResponseCode.UPDATE_DAILY_RECORD_DIARY_SHARE, diaryShareResponseDto);
+    }
+
+    @PutMapping(
+            value = "/today/photo",
+            consumes = MediaType.MULTIPART_FORM_DATA_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    @Operation(summary = "오늘 사진 저장/수정 [JWT O]")
+    public ResponseEntity<ResponseData<DailyRecordDto.PhotoResponse>> updateTodayPhoto(
+            @RequestPart(value = "imageFile", required = false) MultipartFile imageFile) throws IOException {
+
+        DailyRecordDto.PhotoResponse photoResponseDto = dailyRecordService.updateTodayPhoto(imageFile);
+
+        return ResponseData.toResponseEntity(ResponseCode.UPDATE_DAILY_RECORD_PHOTO, photoResponseDto);
+    }
+
+    @DeleteMapping("/today/photo")
+    @Operation(summary = "오늘 사진 삭제 [JWT O]")
+    public ResponseEntity<ResponseData> deleteTodayPhoto() {
+
+        dailyRecordService.deleteTodayPhoto();
+
+        return ResponseData.toResponseEntity(ResponseCode.DELETE_DAILY_RECORD_PHOTO);
+    }
+
+    @PutMapping(
+            value = "/today/drawing",
+            consumes = MediaType.MULTIPART_FORM_DATA_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    @Operation(summary = "오늘 그림 저장/수정 [JWT O]")
+    public ResponseEntity<ResponseData<DailyRecordDto.DrawingResponse>> updateTodayDrawing(
+            @RequestPart(value = "imageFile", required = false) MultipartFile imageFile) throws IOException {
+
+        DailyRecordDto.DrawingResponse drawingResponseDto = dailyRecordService.updateTodayDrawing(imageFile);
+
+        return ResponseData.toResponseEntity(ResponseCode.UPDATE_DAILY_RECORD_DRAWING, drawingResponseDto);
+    }
+
+    @DeleteMapping("/today/drawing")
+    @Operation(summary = "오늘 그림 삭제 [JWT O]")
+    public ResponseEntity<ResponseData> deleteTodayDrawing() {
+
+        dailyRecordService.deleteTodayDrawing();
+
+        return ResponseData.toResponseEntity(ResponseCode.DELETE_DAILY_RECORD_DRAWING);
     }
 
 }
