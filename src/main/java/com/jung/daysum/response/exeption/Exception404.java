@@ -41,4 +41,12 @@ public class Exception404 extends CustomException {
             super(ResponseCode.NOT_FOUND_CURRENT_ACTIVITY, message);
         }
     }
+
+    public static class NoSuchCoupleRecord extends Exception404 {
+
+        public NoSuchCoupleRecord(String message) {
+            super(ResponseCode.NOT_FOUND_COUPLE_RECORD, message);
+        }
+    }
+
 }

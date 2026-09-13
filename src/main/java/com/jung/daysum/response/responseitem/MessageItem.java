@@ -73,6 +73,12 @@ public class MessageItem {
     // < Calendar >
     public static final String READ_CALENDAR = "SUCCESS - 캘린더 기록 조회 성공";
 
+    // < CoupleRecord >
+    public static final String READ_COUPLE_RECORD = "SUCCESS - 공동 기록 조회 성공";
+    public static final String UPDATE_COUPLE_RECORD = "SUCCESS - 공동 기록 저장 성공";
+    public static final String NOT_FOUND_COUPLE_RECORD = "ERROR - 존재하지 않는 공동 기록 조회 에러";
+    public static final String CONFLICT_COUPLE_RECORD = "ERROR - 공동 기록 버전 충돌 에러";
+
     // < Etc >
     public static final String ANONYMOUS_USER_ERROR = "ERROR - anonymousUser 에러";
     public static final String INTERNAL_SERVER_ERROR = "ERROR - 서버 내부 에러";
