@@ -70,6 +70,9 @@ public class MessageItem {
     public static final String READ_PARTNER_DAILY_RECORD = "SUCCESS - 상대방 기록 조회 성공";
     public static final String READ_PARTNER_ACTIVITIES = "SUCCESS - 상대방 활동 기록 조회 성공";
 
+    // < Calendar >
+    public static final String READ_CALENDAR = "SUCCESS - 캘린더 기록 조회 성공";
+
     // < Etc >
     public static final String ANONYMOUS_USER_ERROR = "ERROR - anonymousUser 에러";
     public static final String INTERNAL_SERVER_ERROR = "ERROR - 서버 내부 에러";
