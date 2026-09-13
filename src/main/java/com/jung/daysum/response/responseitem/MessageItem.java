@@ -47,6 +47,14 @@ public class MessageItem {
     public static final String DELETE_DAILY_RECORD_PHOTO = "SUCCESS - 오늘 사진 삭제 성공";
     public static final String UPDATE_DAILY_RECORD_DRAWING = "SUCCESS - 오늘 그림 저장 성공";
     public static final String DELETE_DAILY_RECORD_DRAWING = "SUCCESS - 오늘 그림 삭제 성공";
+    public static final String BAD_REQUEST_MUSIC = "ERROR - 잘못된 음악 요청 에러";
+    public static final String MUSIC_SERVER_ERROR = "ERROR - 음악 검색 서버 처리 에러";
+
+    // < Music >
+    public static final String READ_MUSIC_SEARCH = "SUCCESS - 음악 검색 성공";
+    public static final String UPDATE_DAILY_RECORD_MUSIC = "SUCCESS - 오늘 음악 저장 성공";
+    public static final String DELETE_DAILY_RECORD_MUSIC = "SUCCESS - 오늘 음악 삭제 성공";
+
     // < Etc >
     public static final String ANONYMOUS_USER_ERROR = "ERROR - anonymousUser 에러";
     public static final String INTERNAL_SERVER_ERROR = "ERROR - 서버 내부 에러";

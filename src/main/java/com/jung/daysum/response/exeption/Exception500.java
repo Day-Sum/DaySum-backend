@@ -28,4 +28,11 @@ public class Exception500 extends CustomException {
             super(ResponseCode.STORAGE_ERROR, message);
         }
     }
+
+    public static class MusicServer extends Exception500 {
+
+        public MusicServer(String message) {
+            super(ResponseCode.MUSIC_SERVER_ERROR, message);
+        }
+    }
 }
