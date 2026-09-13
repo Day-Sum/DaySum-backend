@@ -1,0 +1,16 @@
+package com.jung.daysum.response.exeption;
+
+import com.jung.daysum.response.ResponseCode;
+import lombok.Getter;
+
+@Getter
+public abstract class CustomException extends RuntimeException {
+
+    private ResponseCode errorResponseCode;
+    private String message;  // 409 or 500 예외인 경우에는 null 허용.
+
+    public CustomException(ResponseCode errorResponseCode, String message) {
+        this.errorResponseCode = errorResponseCode;
+        this.message = message;
+    }
+}
