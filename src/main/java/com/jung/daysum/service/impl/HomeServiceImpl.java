@@ -57,6 +57,7 @@ public class HomeServiceImpl implements HomeService {
                     .artist(dailyRecord.getMusicArtist())
                     .artworkUrl(dailyRecord.getMusicArtworkUrl())
                     .storeUrl(dailyRecord.getMusicStoreUrl())
+                    .previewUrl(dailyRecord.getMusicPreviewUrl())
                     .build();
         }
 
@@ -67,7 +68,7 @@ public class HomeServiceImpl implements HomeService {
 
             currentActivityDto = HomeDto.CurrentActivity.builder()
                     .activityId(currentActivity.getId())
-                    .content(currentActivity.getContent())
+                    .activity(currentActivity.getContent())
                     .startedAt(currentActivity.getStartedAt())
                     .build();
         }

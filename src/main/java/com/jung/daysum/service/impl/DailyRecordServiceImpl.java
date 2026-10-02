@@ -391,7 +391,8 @@ public class DailyRecordServiceImpl implements DailyRecordService {
                     musicUpdateRequestDto.getTitle(),
                     musicUpdateRequestDto.getArtist(),
                     musicUpdateRequestDto.getArtworkUrl(),
-                    musicUpdateRequestDto.getStoreUrl()
+                    musicUpdateRequestDto.getStoreUrl(),
+                    musicUpdateRequestDto.getPreviewUrl()
             );
 
             dailyRecordRepository.save(dailyRecord);
@@ -403,7 +404,8 @@ public class DailyRecordServiceImpl implements DailyRecordService {
                     musicUpdateRequestDto.getTitle(),
                     musicUpdateRequestDto.getArtist(),
                     musicUpdateRequestDto.getArtworkUrl(),
-                    musicUpdateRequestDto.getStoreUrl()
+                    musicUpdateRequestDto.getStoreUrl(),
+                    musicUpdateRequestDto.getPreviewUrl()
             );
         }
 
@@ -416,6 +418,7 @@ public class DailyRecordServiceImpl implements DailyRecordService {
                 .artist(dailyRecord.getMusicArtist())
                 .artworkUrl(dailyRecord.getMusicArtworkUrl())
                 .storeUrl(dailyRecord.getMusicStoreUrl())
+                .previewUrl(dailyRecord.getMusicPreviewUrl())
                 .version(dailyRecord.getVersion())
                 .build();
     }
