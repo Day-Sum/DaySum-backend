@@ -1,5 +1,6 @@
 package com.jung.daysum.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -9,6 +10,7 @@ public class ItunesDto {
 
     @Getter
     @NoArgsConstructor
+    @JsonIgnoreProperties(ignoreUnknown = true)
     public static class SearchResponse {
 
         private Integer resultCount;
@@ -18,6 +20,7 @@ public class ItunesDto {
 
     @Getter
     @NoArgsConstructor
+    @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Result {
 
         private Long trackId;
@@ -25,5 +28,6 @@ public class ItunesDto {
         private String artistName;
         private String artworkUrl100;
         private String trackViewUrl;
+        private String previewUrl;
     }
 }

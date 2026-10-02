@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ActivityService {
 
-    ActivityDto.Response createActivity(ActivityDto.CreateRequest activityCreateRequestDto);
+    ActivityDto.SaveResponse updateCurrentActivity(ActivityDto.UpdateRequest activityUpdateRequestDto);
 
     void deleteCurrentActivity();
 

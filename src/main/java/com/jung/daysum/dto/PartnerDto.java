@@ -64,7 +64,7 @@ public class PartnerDto {
 
         private Long activityId;
 
-        private String content;
+        private String activity;
 
         private LocalDateTime startedAt;
 
@@ -89,6 +89,8 @@ public class PartnerDto {
         private String artworkUrl;
 
         private String storeUrl;
+
+        private String previewUrl;
     }
 
 
@@ -100,7 +102,7 @@ public class PartnerDto {
 
         private Long activityId;
 
-        private String content;
+        private String activity;
 
         private LocalDateTime startedAt;
     }

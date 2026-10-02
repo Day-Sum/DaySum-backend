@@ -46,6 +46,8 @@ public class HomeDto {
         private String artworkUrl;
 
         private String storeUrl;
+
+        private String previewUrl;
     }
 
 
@@ -57,7 +59,7 @@ public class HomeDto {
 
         private Long activityId;
 
-        private String content;
+        private String activity;
 
         private LocalDateTime startedAt;
     }

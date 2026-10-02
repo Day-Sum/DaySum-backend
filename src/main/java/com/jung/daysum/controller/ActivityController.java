@@ -23,14 +23,14 @@ public class ActivityController {
     private final ActivityService activityService;
 
 
-    @PostMapping
-    @Operation(summary = "현재 활동 시작/변경 [JWT O]")
-    public ResponseEntity<ResponseData<ActivityDto.Response>> createActivity(
-            @RequestBody ActivityDto.CreateRequest activityCreateRequestDto
+    @PutMapping
+    @Operation(summary = "현재 활동 저장/변경 [JWT O]")
+    public ResponseEntity<ResponseData<ActivityDto.SaveResponse>> updateCurrentActivity(
+            @RequestBody ActivityDto.UpdateRequest activityUpdateRequestDto
     ) {
-        ActivityDto.Response activityResponseDto = activityService.createActivity(activityCreateRequestDto);
+        ActivityDto.SaveResponse activityResponseDto = activityService.updateCurrentActivity(activityUpdateRequestDto);
 
-        return ResponseData.toResponseEntity(ResponseCode.CREATED_ACTIVITY, activityResponseDto);
+        return ResponseData.toResponseEntity(ResponseCode.UPDATE_CURRENT_ACTIVITY, activityResponseDto);
     }
 
 

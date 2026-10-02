@@ -96,6 +96,7 @@ public class PartnerServiceImpl implements PartnerService {
                     .artist(dailyRecord.getMusicArtist())
                     .artworkUrl(dailyRecord.getMusicArtworkUrl())
                     .storeUrl(dailyRecord.getMusicStoreUrl())
+                    .previewUrl(dailyRecord.getMusicPreviewUrl())
                     .build();
         }
 
@@ -107,7 +108,7 @@ public class PartnerServiceImpl implements PartnerService {
             currentActivityDto =
                     PartnerDto.CurrentActivity.builder()
                             .activityId(currentActivity.getId())
-                            .content(currentActivity.getContent())
+                            .activity(currentActivity.getContent())
                             .startedAt(currentActivity.getStartedAt())
                             .build();
         }
@@ -204,6 +205,7 @@ public class PartnerServiceImpl implements PartnerService {
                     .artist(dailyRecord.getMusicArtist())
                     .artworkUrl(dailyRecord.getMusicArtworkUrl())
                     .storeUrl(dailyRecord.getMusicStoreUrl())
+                    .previewUrl(dailyRecord.getMusicPreviewUrl())
                     .build();
         }
 
@@ -276,7 +278,7 @@ public class PartnerServiceImpl implements PartnerService {
             activityResponseDtos.add(
                     PartnerDto.ActivityResponse.builder()
                             .activityId(activity.getId())
-                            .content(activity.getContent())
+                            .activity(activity.getContent())
                             .startedAt(activity.getStartedAt())
                             .endedAt(activity.getEndedAt())
                             .build()

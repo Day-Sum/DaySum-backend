@@ -61,6 +61,9 @@ public class DailyRecord extends BaseEntity implements Serializable {
     @Column(name = "music_store_url")
     private String musicStoreUrl;
 
+    @Column(name = "music_preview_url", length = 1000)
+    private String musicPreviewUrl;
+
     @Version
     private Long version;
 
@@ -79,7 +82,8 @@ public class DailyRecord extends BaseEntity implements Serializable {
             String musicTitle,
             String musicArtist,
             String musicArtworkUrl,
-            String musicStoreUrl
+            String musicStoreUrl,
+            String musicPreviewUrl
     ) {
         this.musicProvider = musicProvider;
         this.musicTrackId = musicTrackId;
@@ -87,6 +91,7 @@ public class DailyRecord extends BaseEntity implements Serializable {
         this.musicArtist = musicArtist;
         this.musicArtworkUrl = musicArtworkUrl;
         this.musicStoreUrl = musicStoreUrl;
+        this.musicPreviewUrl = musicPreviewUrl;
     }
 
     public void deleteMusic() {
@@ -96,6 +101,7 @@ public class DailyRecord extends BaseEntity implements Serializable {
         this.musicArtist = null;
         this.musicArtworkUrl = null;
         this.musicStoreUrl = null;
+        this.musicPreviewUrl = null;
     }
 
     public void updateMood(String mood) {

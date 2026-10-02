@@ -87,6 +87,7 @@ public class DailyRecordDto {
         private String musicArtist;
         private String musicArtworkUrl;
         private String musicStoreUrl;
+        private String musicPreviewUrl;
 
         public Response(DailyRecord entity) {
             this.dailyRecordId = entity.getId();
@@ -103,6 +104,7 @@ public class DailyRecordDto {
             this.musicArtist = entity.getMusicArtist();
             this.musicArtworkUrl = entity.getMusicArtworkUrl();
             this.musicStoreUrl = entity.getMusicStoreUrl();
+            this.musicPreviewUrl = entity.getMusicPreviewUrl();
         }
     }
 
