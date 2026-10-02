@@ -1,5 +1,6 @@
 package com.jung.daysum.config;
 
+import feign.RequestInterceptor;
 import feign.codec.Decoder;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
@@ -24,9 +25,8 @@ public class FeignConfig {
         List<MediaType> mediaTypes =
                 new ArrayList<>(converter.getSupportedMediaTypes());
 
-        mediaTypes.add(
-                MediaType.valueOf("text/javascript")
-        );
+        // iTunes Search API가 text/javascript로 응답하는 경우도 JSON으로 디코딩한다.
+        mediaTypes.add(MediaType.valueOf("text/javascript"));
 
         converter.setSupportedMediaTypes(mediaTypes);
 
@@ -36,5 +36,13 @@ public class FeignConfig {
         return new ResponseEntityDecoder(
                 new SpringDecoder(messageConverters)
         );
+    }
+
+    @Bean
+    public RequestInterceptor itunesRequestInterceptor() {
+        return requestTemplate -> {
+            requestTemplate.header("User-Agent", "DaySum/1.0");
+            requestTemplate.header("Accept", MediaType.APPLICATION_JSON_VALUE);
+        };
     }
 }

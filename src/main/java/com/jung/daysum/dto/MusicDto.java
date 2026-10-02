@@ -21,6 +21,7 @@ public class MusicDto {
         private String artist;
         private String artworkUrl;
         private String storeUrl;
+        private String previewUrl;
     }
 
 
@@ -48,6 +49,7 @@ public class MusicDto {
         private String artist;
         private String artworkUrl;
         private String storeUrl;
+        private String previewUrl;
     }
 
 
@@ -63,6 +65,7 @@ public class MusicDto {
         private String artist;
         private String artworkUrl;
         private String storeUrl;
+        private String previewUrl;
         private Long version;
     }
 }

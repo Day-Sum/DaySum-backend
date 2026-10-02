@@ -24,7 +24,7 @@ public class Activity extends BaseEntity implements Serializable {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @Column(name = "content", nullable = false)
+    @Column(name = "content", nullable = false, length = 30)
     private String content;
 
     @Column(name = "started_at", nullable = false)
@@ -48,8 +48,11 @@ public class Activity extends BaseEntity implements Serializable {
         this.startedAt = startedAt;
     }
 
+    public void updateActivity(String content) {
+        this.content = content;
+    }
 
-    public void end() {
-        this.endedAt = LocalDateTime.now();
+    public void end(LocalDateTime endedAt) {
+        this.endedAt = endedAt;
     }
 }
